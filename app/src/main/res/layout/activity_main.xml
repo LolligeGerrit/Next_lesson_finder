@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivityPhone">
+
+    <TextView
+        android:id="@+id/statusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/statusTitle"
+        app:layout_constraintTop_toBottomOf="@+id/statusTitle"
+        tools:text="Making api request" />
+
+    <TextView
+        android:id="@+id/seekBarStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="10"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBarTitle"
+        app:layout_constraintEnd_toEndOf="@+id/seekBarDelay" />
+
+    <TextView
+        android:id="@+id/statusTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Status:"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/seekBarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Delay:"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/statusText"
+        app:layout_constraintTop_toBottomOf="@+id/statusText" />
+
+    <SeekBar
+        android:id="@+id/seekBarDelay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:max="15"
+        android:progress="10"
+        app:layout_constraintEnd_toEndOf="@+id/statusToggle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/seekBarTitle"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarTitle" />
+
+    <Switch
+        android:id="@+id/statusToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="On/Off"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/statusTitle" />
+
+    <TextView
+        android:id="@+id/nextLesson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="(Next Lesson)"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/getLessonButton"
+        app:layout_constraintStart_toStartOf="@+id/getLessonButton"
+        app:layout_constraintTop_toBottomOf="@+id/getLessonButton" />
+
+    <Button
+        android:id="@+id/authenticateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:onClick="authenticateZermelo"
+        android:text="Authenticate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/inputTextZermeloCode" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:onClick="deactivateZermeloToken"
+        android:text="Logout"
+        app:layout_constraintBottom_toBottomOf="@+id/authenticateButton"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/inputTextZermeloCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="Koppel code"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/authenticateButton"
+        app:layout_constraintStart_toStartOf="@+id/statusTitle" />
+
+    <EditText
+        android:id="@+id/inputTextLeerlingNummer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Leerlingnummer"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/inputTextZermeloCode"
+        app:layout_constraintEnd_toEndOf="@+id/logoutButton"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/inputTextZermeloCode"
+        app:layout_constraintTop_toTopOf="@+id/inputTextZermeloCode" />
+
+    <Button
+        android:id="@+id/getLessonButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="onClickRequest"
+        android:text="Get next lesson"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarDelay" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:onClick="sendToWatch"
+        android:text="Send test data to watch"
+        app:layout_constraintBottom_toTopOf="@+id/inputTextZermeloCode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/workerStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/statusText"
+        app:layout_constraintEnd_toEndOf="@+id/statusToggle"
+        app:layout_constraintTop_toTopOf="@+id/statusText"
+        tools:text="Worker Status" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="app_itembg_color">#1b1b1b</color>
+    <color name="secondary_app_color">#fff</color>
+    <color name="app_bg">#FF000000</color>
+    <color name="title_color">#fff</color> <!--#39efbe-->
+    <color name="text_color">#fff</color> <!--#0a7559-->
+
+</resources>
