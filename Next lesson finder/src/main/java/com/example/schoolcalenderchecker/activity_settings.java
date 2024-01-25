@@ -160,16 +160,23 @@ public class activity_settings extends Activity {
 
     public void deleteAuthData() {
         access_token = "";
-        saveData();
+        saveData(true);
     }
+
     public void saveData() {
+        saveData(false);
+    }
+    public void saveData(Boolean deleteAuthData) {
         SharedPreferences sharedPreferences = getSharedPreferences(shared_prefs, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         editor.putInt(delaySeekBarStatusPref, delaySeekBarStatus);
         editor.putBoolean(freeHourSwitchPref, freeHourSwitchState);
-        editor.putString(access_tokenPref, access_token);
         editor.putString(zportal_namePref, zportal_name);
+
+        if (deleteAuthData) {
+            editor.putString(access_tokenPref, access_token);
+        }
 
 
         editor.apply();
