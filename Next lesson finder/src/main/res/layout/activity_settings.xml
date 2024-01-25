@@ -163,7 +163,6 @@
                         android:layout_height="100px"
                         android:background="@drawable/itembg_middle"
                         android:fontFamily="sans-serif"
-                        android:gravity="center"
                         android:text="Delete authentication Data"
                         android:textAlignment="viewStart"
                         android:textColor="@android:color/secondary_text_dark"
