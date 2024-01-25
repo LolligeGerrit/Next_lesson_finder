@@ -76,14 +76,14 @@ public class complicationDataSourceService extends SuspendingComplicationDataSou
 
         }
 
-        MainActivity.instance.makeRequest(new RequestCallback() {
+        activity_main.instance.makeRequest(new RequestCallback() {
             @Override
             public void requestComplete(String response) {
 
                 boolean done = false;
 
-                JSONObject les = MainActivity.instance.processData(response, true, false, true);
-                JSONObject laatsteLes = MainActivity.instance.processData(response, false, false, true);
+                JSONObject les = activity_main.instance.processData(response, true, false, true);
+                JSONObject laatsteLes = activity_main.instance.processData(response, false, false, true);
 
                 if (les == null) {
                     title = new PlainComplicationText(ComplicationText.plainText("x"));
@@ -105,14 +105,14 @@ public class complicationDataSourceService extends SuspendingComplicationDataSou
 
                         } catch (Exception e) {
                         try {
-                            if (MainActivity.unixToTime(currentTimeSeconds).getDayOfYear() == MainActivity.unixToTime(les.getInt("start")).getDayOfYear()) { //Check if the lesson is today
+                            if (activity_main.unixToTime(currentTimeSeconds).getDayOfYear() == activity_main.unixToTime(les.getInt("start")).getDayOfYear()) { //Check if the lesson is today
                                 try {
                                     getData(); //Used to get the freeHourSwitchState
 
                                     //If toggled, check if you have a free hour.
                                     if (freeHourSwitchState){
                                         if (les.getLong("start") - currentTimeSeconds >= 60*45) { //If there is atleast 45 minutes left before the next lesson...
-                                            String displayStartTime = MainActivity.niceTime(MainActivity.unixToTime(les.getLong("start"))).get(0) + "";
+                                            String displayStartTime = activity_main.niceTime(activity_main.unixToTime(les.getLong("start"))).get(0) + "";
 
                                             title = new PlainComplicationText(ComplicationText.plainText(les.getJSONArray("subjects").get(0).toString()));
                                             text = new PlainComplicationText(ComplicationText.plainText(displayStartTime));
@@ -154,7 +154,7 @@ public class complicationDataSourceService extends SuspendingComplicationDataSou
         });
 
 
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        Intent intent = new Intent(getApplicationContext(), activity_main.class);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent,  FLAG_IMMUTABLE);
 
@@ -164,7 +164,7 @@ public class complicationDataSourceService extends SuspendingComplicationDataSou
             case RANGED_VALUE:
 
                 //This is all for the progress bar.
-                LocalDateTime currentTime = MainActivity.unixToTime(currentTimeSeconds);
+                LocalDateTime currentTime = activity_main.unixToTime(currentTimeSeconds);
                 long dayStart = (currentTimeSeconds - ((long) currentTime.getHour() * 60 * 60 + currentTime.getMinute() * 60L + currentTime.getSecond())) + 30600; //In the and we add 8.5*60*60 = 30600 to make the startTime 8:30
 
                 long secondsToday = currentTimeSeconds - dayStart;

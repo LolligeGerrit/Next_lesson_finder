@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:background="@color/app_bg"
         android:padding="@dimen/box_inset_layout_padding"
-        tools:context=".MainActivity"
+        tools:context=".activity_main"
         tools:deviceIds="wear"
         tools:layout_editor_absoluteX="109dp"
         tools:layout_editor_absoluteY="0dp">

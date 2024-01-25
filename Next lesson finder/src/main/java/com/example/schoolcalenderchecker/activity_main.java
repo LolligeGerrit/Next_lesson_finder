@@ -30,9 +30,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.TimeZone;
 
-public class MainActivity extends Activity {
+public class activity_main extends Activity {
 
-    public static com.example.schoolcalenderchecker.MainActivity instance;
+    public static activity_main instance;
 
     TextView nextLessonText;
     TextView nextLessonLocText;
@@ -89,7 +89,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 //switch to the settings view
-                Intent intentSettingsView = new Intent(MainActivity.this, activity_settings.class);
+                Intent intentSettingsView = new Intent(activity_main.this, activity_settings.class);
                 startActivity(intentSettingsView);
             }
         });
@@ -99,7 +99,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 //switch to the authenticate view
-                Intent intentAuthenticateView = new Intent(MainActivity.this, activity_authenticate.class);
+                Intent intentAuthenticateView = new Intent(activity_main.this, activity_authenticate.class);
                 startActivity(intentAuthenticateView);
             }
         });

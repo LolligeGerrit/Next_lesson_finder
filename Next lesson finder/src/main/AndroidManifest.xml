@@ -20,14 +20,14 @@
             android:name=".activity_authenticate"
             android:exported="false"
             android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".activity_main"/>
 
         <activity
             android:name=".activity_settings"
             android:exported="true"
             android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
             android:label="activity_settings"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".activity_main"/>
 
 
         <uses-library
@@ -42,7 +42,7 @@
             android:value="true" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".activity_main"
             android:exported="true"
             android:label="@string/app_name">
 
