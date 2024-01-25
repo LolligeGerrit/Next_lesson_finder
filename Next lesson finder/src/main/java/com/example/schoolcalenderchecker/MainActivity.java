@@ -221,8 +221,21 @@ public class MainActivity extends Activity {
 
         }
 
+
         String currentYear = Integer.toString(currentDate.getYear());
-        String currentWeekString = Integer.toString(currentWeekInt);
+
+        // Check if the currentWeekString < 10, this causes an error when calling the api.
+        // The api expects the format yyyyww. When the currentWeekString is for example "5", the format becomes yyyyw, raising an error.
+
+        String currentWeekString;
+
+        if (currentWeekInt < 10) {
+            currentWeekString = "0" + currentWeekInt;
+        } else {
+            currentWeekString = Integer.toString(currentWeekInt);
+        }
+
+
         String week = currentYear + currentWeekString;
 
         String student = llnNummer;
