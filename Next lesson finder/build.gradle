@@ -11,26 +11,23 @@ android {
         minSdk 30
         targetSdk 34
         versionCode 7
-        versionName "1.1.7"
+        versionName "1.2"
 
     }
 
     buildTypes {
         release {
             //the following lines are used for optimizing the app's performance
-            /*
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile(
                     'proguard-android-optimize.txt'),
                     'proguard-rules.pro'
 
-             */
-
-            debuggable true
+            debuggable false
         }
         debug {
-            debuggable true
+            debuggable false
         }
     }
 
