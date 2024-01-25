@@ -44,3 +44,12 @@ _Changes:_
 _Bugfixes:_
  - Fixed complication malfunctioning on Android 13
  - Fixed "last complication update" not showing day correctly.
+ - 
+## v1.2
+_Changes:_
+ - Users can now use different portals, this makes the app usable for all zermelo users.
+ - Reworked settings interface, it now has a more uniform design.
+
+_Bugfixes:_
+ - Fixed edge case where the week number would be in the format `w` instead of `ww`, which is the format accepted by the zermelo API.
+
