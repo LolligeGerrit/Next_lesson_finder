@@ -4,9 +4,12 @@ package com.example.schoolcalenderchecker;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -31,6 +34,8 @@ public class activity_settings extends Activity {
 
     Switch freeHourSwitch;
 
+    EditText inputZermeloPortal;
+
     Button deleteAuthButton;
     TextView versionTitleSettings;
 
@@ -39,11 +44,15 @@ public class activity_settings extends Activity {
     public static boolean freeHourSwitchState;
     public static String access_token;
 
+    public static String zportal_name;
+
     //saving stuff
     public static final String shared_prefs = "sharedPrefs";
     public static final String delaySeekBarStatusPref = "delaySeekBarStatusPref";
     public static final String freeHourSwitchPref = "freeHourSwitchPref";
     public static final String access_tokenPref = "access_tokenPref";
+
+    public static final String zportal_namePref = "zportal_namePref";
 
 
 
@@ -58,6 +67,9 @@ public class activity_settings extends Activity {
         delaySeekBarStatusText = findViewById(R.id.delaySeekBarStatusText);
 
         freeHourSwitch = findViewById(R.id.freeHourSwitch);
+
+        inputZermeloPortal = findViewById(R.id.inputZermeloPortal);
+
         deleteAuthButton = findViewById(R.id.deleteAuthButton);
         versionTitleSettings = findViewById(R.id.versionTitleSettings);
 
@@ -112,6 +124,24 @@ public class activity_settings extends Activity {
             }
         });
 
+        inputZermeloPortal.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                zportal_name = String.valueOf(inputZermeloPortal.getText());
+                saveData();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
 
         try {
             loadData();
@@ -124,6 +154,7 @@ public class activity_settings extends Activity {
             Toast toast = Toast.makeText(this, text, duration);
             toast.show();
         }
+
     }
 
 
@@ -138,6 +169,7 @@ public class activity_settings extends Activity {
         editor.putInt(delaySeekBarStatusPref, delaySeekBarStatus);
         editor.putBoolean(freeHourSwitchPref, freeHourSwitchState);
         editor.putString(access_tokenPref, access_token);
+        editor.putString(zportal_namePref, zportal_name);
 
 
         editor.apply();
@@ -147,12 +179,14 @@ public class activity_settings extends Activity {
         SharedPreferences sharedPreferences = getSharedPreferences(shared_prefs, MODE_PRIVATE);
         delaySeekBarStatus = sharedPreferences.getInt(delaySeekBarStatusPref, 10);
         freeHourSwitchState = sharedPreferences.getBoolean(freeHourSwitchPref, true);
+        zportal_name = sharedPreferences.getString(zportal_namePref, "griftland");
 
     }
 
     public void updateViews() {
         delaySeekBar.setProgress(delaySeekBarStatus);
         freeHourSwitch.setChecked(freeHourSwitchState);
+        inputZermeloPortal.setText(zportal_name);
     }
 
     public long getLastComplicationUpdateTime() {

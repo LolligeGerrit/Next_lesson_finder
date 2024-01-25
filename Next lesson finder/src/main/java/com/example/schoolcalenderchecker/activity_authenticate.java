@@ -35,14 +35,16 @@ public class activity_authenticate extends Activity {
     Button loginButton;
     Button logoutButton;
     String access_token;
+    String llnNummer;
+    String zportal_name = "griftland"; // Default value is "griftland"
 
-
-    public String llnNummer;
 
     //saving stuff
     public static final String shared_prefs = "sharedPrefs";
     public static final String access_tokenPref = "access_tokenPref";
     public static final String llnNummerPref = "llnNummerPref";
+
+    public static final String zportal_namePref = "zportal_namePref";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,10 +129,13 @@ public class activity_authenticate extends Activity {
             return;
         }
 
+        //Get the portal name
+        loadData();
+
 
         //Make an api request to get the access_token
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://griftland.zportal.nl/api/v3/oauth/token?grant_type=authorization_code&code=" + zermeloCode;
+        String url = "https://" + zportal_name + ".zportal.nl/api/v3/oauth/token?grant_type=authorization_code&code=" + zermeloCode;
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -182,9 +187,12 @@ public class activity_authenticate extends Activity {
             return;
         }
 
+        //Get the portal name
+        loadData();
+
         //Make an api request to remove the token from the database.
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://griftland.zportal.nl/api/v3/oauth/logout?access_token=" + access_token;
+        String url = "https://" + zportal_name + ".zportal.nl/api/v3/oauth/logout?access_token=" + access_token;
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -241,6 +249,7 @@ public class activity_authenticate extends Activity {
 
         access_token = sharedPreferences.getString(access_tokenPref, "");
         llnNummer = sharedPreferences.getString(llnNummerPref, "");
+        zportal_name = sharedPreferences.getString(zportal_namePref, "griftland");
     }
 
     public void updateViews() {

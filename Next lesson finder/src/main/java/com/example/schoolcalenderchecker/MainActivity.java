@@ -51,10 +51,13 @@ public class MainActivity extends Activity {
     public static final String llnNummerPref = "llnNummerPref";
     public static final String access_tokenPref = "access_tokenPref";
 
+    public static final String zportal_namePref = "zportal_namePref";
+
 
     String llnNummer;
     int timeDelay;
     String access_token;
+    String zportal_name = "griftland"; // Default value is "griftland"
 
     long lastRequestTime = 0;
 
@@ -152,7 +155,7 @@ public class MainActivity extends Activity {
         });
 
         //Make a request when we start the app
-        getData();
+        loadData();
 
         if (access_token != null || access_token != "") {
             makeRequest(new RequestCallback() {
@@ -209,7 +212,7 @@ public class MainActivity extends Activity {
     public void makeRequest(RequestCallback callback, boolean doPopups) {
 
         //Get the necessary data from other activities.
-        getData();
+        loadData();
 
         //Get the current week and year, format it to the right format (for example: 202310, 2023 -> year and 10 -> week)
         LocalDateTime currentDate = LocalDateTime.now();
@@ -240,12 +243,10 @@ public class MainActivity extends Activity {
 
         String student = llnNummer;
 
-
-
-        // Instantiate the RequestQueue.
+        // Make an API request for lesson data.
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        String url = "https://griftland.zportal.nl/api/v3/liveschedule?access_token=" + access_token + "&student=" + student + "&week=" + week;
+        String url = "https://" + zportal_name + ".zportal.nl/api/v3/liveschedule?access_token=" + access_token + "&student=" + student + "&week=" + week;
 
         //check if there is an access_key.
         if (access_token == null || access_token == "") {
@@ -432,12 +433,13 @@ public class MainActivity extends Activity {
 
 
     //Getting the nessasary data.
-    public void getData() {
+    public void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences(shared_prefs, MODE_PRIVATE);
 
         timeDelay = sharedPreferences.getInt(delaySeekBarStatusPref, 10);
         llnNummer = sharedPreferences.getString(llnNummerPref, "");
         access_token = sharedPreferences.getString(access_tokenPref, "");
+        zportal_name = sharedPreferences.getString(zportal_namePref, "griftland");
 
     }
 
