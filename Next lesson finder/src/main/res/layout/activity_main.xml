@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <Space
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="30dp" />
 
@@ -52,7 +52,7 @@
                     android:gravity="center"
                     android:textSize="16sp" />
 
-                <Space
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="10dp" />
 
@@ -72,7 +72,7 @@
                     tools:layout_editor_absoluteX="38dp"
                     tools:layout_editor_absoluteY="38dp" />
 
-                <Space
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp" />
 
@@ -87,7 +87,7 @@
                     android:textColor="@color/text_color"
                     android:textSize="14sp" />
 
-                <Space
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp" />
 
@@ -100,7 +100,7 @@
                     android:text="make request"
                     android:textColor="@color/text_color" />
 
-                <Space
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="20dp" />
 
@@ -112,7 +112,7 @@
                     android:text="version"
                     android:textColor="#34FFFFFF" />
 
-                <Space
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="20dp" />
 
