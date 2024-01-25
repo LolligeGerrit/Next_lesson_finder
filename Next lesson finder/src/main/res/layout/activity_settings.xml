@@ -59,7 +59,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="last complication update"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/lastComplicationUpdateValue"
@@ -78,8 +78,9 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="100px"
                         android:background="@drawable/itembg_middle"
+                        android:gravity="center"
                         android:orientation="vertical">
 
 
@@ -124,12 +125,13 @@
 
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="100px"
                         android:background="@drawable/itembg_middle">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:gravity="center"
                             android:orientation="horizontal">
 
                             <TextView
@@ -158,15 +160,33 @@
                     <Button
                         android:id="@+id/deleteAuthButton"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/itembg_bottom"
+                        android:layout_height="100px"
+                        android:background="@drawable/itembg_middle"
                         android:fontFamily="sans-serif"
+                        android:gravity="center"
                         android:text="Delete authentication Data"
-                        android:textAlignment="center"
+                        android:textAlignment="viewStart"
                         android:textColor="@android:color/secondary_text_dark"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
 
                     <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp" />
+
+                    <EditText
+                        android:id="@+id/inputZermeloPortal"
+                        android:layout_width="match_parent"
+                        android:layout_height="100px"
+                        android:background="@drawable/itembg_bottom"
+                        android:ems="10"
+                        android:hint="(this).zportal.nl"
+                        android:inputType="text"
+                        android:text="griftland"
+                        android:textColor="@android:color/secondary_text_dark"
+                        android:textSize="14sp" />
+
+                    <Space
+                        android:id="@+id/Space"
                         android:layout_width="match_parent"
                         android:layout_height="20dp" />
 
