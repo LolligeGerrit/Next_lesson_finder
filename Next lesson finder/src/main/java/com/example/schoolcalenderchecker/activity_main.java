@@ -270,7 +270,8 @@ public class activity_main extends Activity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if (doPopups) showToastMessage("The api request failed.\nCheck your lln nummer.");
+                if (doPopups) showToastMessage("The api request failed.\nCheck your lln nummer and zportal name.");
+
             }
 
         });
