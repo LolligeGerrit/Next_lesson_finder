@@ -3,11 +3,12 @@
 
 Dit is een app gemaakt voor wearOS devices. Door middel van deze app kunnen zermelo-gebruikers de eerstvolgende les in hun rooster ophalen en bekijken in de app, of op een complication op de watchface.
 
-## Functies
-* Inloggen & uitloggen
-* Een wearOS Complication, deze geeft informatie over je volgende les op je watchface.
+## Afbeeldingen
+<img src="https://github.com/LolligeGerrit/Next_lesson_finder/blob/master/images/complication_preview_1.png" alt="complication_preview_1" style="aspect-ratio: 1 / 1; width: 300px;"/> <img src="https://github.com/LolligeGerrit/Next_lesson_finder/blob/master/images/complication_preview_2.png" alt="complication_preview_2" style="aspect-ratio: 1 / 1; width: 300px;"/> <img src="https://github.com/LolligeGerrit/Next_lesson_finder/blob/master/images/complication_preview_3.png" alt="complication_preview_3" style="aspect-ratio: 1 / 1; width: 300px;"/>
 
-![Screenshot_20231203_141310_sysui](https://github.com/LolligeGerrit/Next_lesson_finder/assets/100466597/2c20f027-e0f7-4cf3-80d9-7d1d97e81d4b)
+<img src="https://github.com/LolligeGerrit/Next_lesson_finder/blob/master/images/app_preview_1.png" alt="app_preview_1" style="aspect-ratio: 1 / 1; width: 300px;"/>
+
+
 
 ## Disclaimer
 Dit project is niet gemaakt door Zermelo Software B.V.
